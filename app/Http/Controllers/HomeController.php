@@ -175,4 +175,13 @@ class HomeController extends Controller
 
         return view('front.find', compact('videos', 'beritas', 'literasis'));
     }
+    public function tentangkami()
+    {
+        return view('front.tentangkami');
+    }
+    public function pedomansiber()
+    {
+        return view('front.pedomansiber');
+    }
+    
 }

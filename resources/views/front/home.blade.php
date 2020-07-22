@@ -131,15 +131,23 @@
                 <div class="col-12 col-md-8 col-lg-4">
                     <div class="post-sidebar-area wow fadeInUpBig" data-wow-delay="0.2s">
                         <!-- Widget Area -->
-                        <?php 
-                            $iklan2 = DB::table('iklans')->where('spase',2)
+                        <div class="row">
+                                <?php 
+                            $iklans = DB::table('iklans')->where('spase','!=',1)
                                     ->where('start_date', '<=', $datenow)
                                     ->where('end_date', '>=', $datenow)
-                                    ->first();
+                                    ->where('publish', 'Public')
+                                    ->orderBy('spase','ASC')
+                                    ->get();
                         ?>
-                        @if ($iklan2)
-                            <img src="{{asset($iklan2->foto)}}" alt="" style="width: 100%">
-                        @endif
+
+                        @foreach ($iklans as $no => $iklan)
+                            <div class="col-sm-12 {{$no!=0? 'col-md-6' : ''}} mb-3">
+                                    <img src="{{asset($iklan->foto)}}" alt="" style="width: 100%">
+                            </div>
+                        @endforeach
+                        </div>
+                        
                         <div class="sidebar-widget-area">
                         </div>
                         <div class="sidebar-widget-area">
