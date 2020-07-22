@@ -61,9 +61,9 @@
                             <div class="form-group row">
                                 <label for="end_date" class="col-sm-2 col-form-label">End Date</label>
                                 <div class="col-sm-10">
-                                    <select name="publis" id="" class="form-control">
-                                        <option value="Public" {{old('publis')=='Public'? 'selected' : '' }} >Public</option>
-                                        <option value="Private" {{old('publis')=='Private'? 'selected' : '' }} >Private</option>
+                                    <select name="publish" id="" class="form-control">
+                                        <option value="Public" {{old('publish')=='Public'? 'selected' : '' }} >Public</option>
+                                        <option value="Private" {{old('publish')=='Private'? 'selected' : '' }} >Private</option>
                                     </select>
                                     @if ($errors->has('publis'))
                                         <small class="form-text text-muted">{{ $errors->first('publis') }}</small>
