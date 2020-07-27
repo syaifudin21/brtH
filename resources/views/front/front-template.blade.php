@@ -21,6 +21,7 @@
     <meta property="og:image:width" content="1024"/>
     <meta property="og:image:height" content="622"/>
     <meta property="fb:app_id" content="976637702517221" />
+    <script data-ad-client="ca-pub-6778922688679043" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     
     <meta name="fbx-token" content="19e2bf014bcd84cd3a63bd2986222f632a19b8951897894e254a90b07c37fbb7">
     <meta name="fbx-berita-id" content="6743">
