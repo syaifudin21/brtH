@@ -88,7 +88,7 @@ class HomeController extends Controller
         ->where('end_date', '>=', $datenow)
         ->first();
         $video = Video::where(['slug'=>$slug,'publish'=>'Public'])->first();
-        $video['dilihat'] = $video->dilihat+1;
+        $video['dilihat'] = $video->dilihat+1 ?? 1;
         $video->save();
         $videovs = Video::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('dilihat', 'DESC')->limit(10)->get();
         $videos = Video::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('created_at', 'DESC')->paginate(12);

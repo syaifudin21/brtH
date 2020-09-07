@@ -2,8 +2,10 @@
 
 namespace App\Console;
 
+use App\Cron;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Log;
 
 class Kernel extends ConsoleKernel
 {
@@ -24,8 +26,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->command('command:test')->everyMinute()->when(function () {
+            return Cron::shouldIRun('command:test', 10); //returns true every 10 minutes
+            Log::debug('corn berhasil');
+        });
     }
 
     /**
