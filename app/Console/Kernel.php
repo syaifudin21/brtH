@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('command:test')->everyMinute()->when(function () {
-            return Cron::shouldIRun('command:test', 10); //returns true every 10 minutes
+            return Cron::shouldIRun('command:test', 1); //returns true every 10 minutes
             Log::debug('corn berhasil');
         });
     }
