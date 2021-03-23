@@ -12,7 +12,7 @@
     <!-- ********** Hero Area Start ********** -->
     <div class="hero-area">
             <div id="carouselExampleControls" class="background-overlay carousel slide" data-ride="carousel">
-                    <div class="carousel-inner" style="max-height: 600px">
+                    <div class="carousel-iAdmin2er" style="max-height: 600px">
                         @foreach ($videos as $i => $video)
                                 <div class="carousel-item {{$i == 0 ? 'active': ''}}">
                                         <img src="{{$video->thumbnail}}" style="object-fit: cover; width: 100%; height: 600px">
@@ -85,7 +85,7 @@
                                     <div class="media-body">
                                         <h6 class="mt-0" style="font-weight: 600">{{$berita->judul}}</h6>
                                         {{-- {{$berita->berita}} --}}
-                                        {{$berita->reporter_id != 0 ?  ($berita->reporter) ? $berita->reporter->nama : 'NN' : 'Admin'}} - {{hari_tanggal_waktu($berita->created_at)}}
+                                        {{$berita->reporter_id != 0 ?  ($berita->reporter) ? $berita->reporter->nama : 'Admin2' : 'Admin'}} - {{hari_tanggal_waktu($berita->created_at)}}
                                         
                                     </div>
                                     </div>
@@ -115,7 +115,7 @@
                                 <div class="media-body">
                                     <h6 class="mt-0" style="font-weight: 600">{{$beritav->judul}}</h6>
                                     {{-- {{$beritav->berita}} --}}
-                                    {{$beritav->reporter_id != 0 ?  ($beritav->reporter) ? $beritav->reporter->nama : 'NN' : 'Admin'}} - {{hari_tanggal_waktu($beritav->created_at)}}
+                                    {{$beritav->reporter_id != 0 ?  ($beritav->reporter) ? $beritav->reporter->nama : 'Admin2' : 'Admin'}} - {{hari_tanggal_waktu($beritav->created_at)}}
                                     
                                 </div>
                                 </div>
@@ -132,15 +132,23 @@
                 <div class="col-12 col-md-8 col-lg-4">
                     <div class="post-sidebar-area wow fadeInUpBig" data-wow-delay="0.2s">
                         <!-- Widget Area -->
-                        <?php 
-                            $iklan2 = DB::table('iklans')->where('spase',2)
+                        <div class="row">
+                                <?php 
+                            $iklans = DB::table('iklans')->where('spase','!=',1)
                                     ->where('start_date', '<=', $datenow)
                                     ->where('end_date', '>=', $datenow)
-                                    ->first();
+                                    ->where('publish', 'Public')
+                                    ->orderBy('spase','ASC')
+                                    ->get();
                         ?>
-                        @if ($iklan2)
-                            <img src="{{asset($iklan2->foto)}}" alt="" style="width: 100%">
-                        @endif
+
+                        @foreach ($iklans as $no => $iklan)
+                            <div class="col-sm-12 {{$no!=0? 'col-md-6' : ''}} mb-3">
+                                    <img src="{{asset($iklan->foto)}}" alt="" style="width: 100%">
+                            </div>
+                        @endforeach
+                        </div>
+                        
                         <div class="sidebar-widget-area">
                         </div>
                         <div class="sidebar-widget-area">
@@ -161,7 +169,7 @@
                                                 <h5 data-toggle="tooltip" data-placement="bottom" title="{{$album->album}}" style="font-weight: bold">{{limit_word($album->album, 35)}}</h5>
                                             </a>
                                             <div class="post-meta">
-                                                <p><a href="#" class="post-author">{{$album->reporter_id != 0 ?  ($album->reporter) ? $album->reporter->nama : 'NN' : 'Admin'}}</a> - <a href="#" class="post-date">{{hari_tanggal_waktu($album->created_at)}}</a></p>
+                                                <p><a href="#" class="post-author">{{$album->reporter_id != 0 ?  ($album->reporter) ? $album->reporter->nama : 'Admin2' : 'Admin'}}</a> - <a href="#" class="post-date">{{hari_tanggal_waktu($album->created_at)}}</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -179,7 +187,7 @@
                                         <div class="media-body">
                                             <h6 class="mt-0" style="font-weight: 600">{{$literasi->judul}}</h6>
                                             {{-- {{$literasi->berita}} --}}
-                                            {{$literasi->reporter_id != 0 ?  ($literasi->reporter) ? $literasi->reporter->nama : 'NN' : 'Admin'}} - {{hari_tanggal_waktu($literasi->created_at)}}
+                                            {{$literasi->reporter_id != 0 ?  ($literasi->reporter) ? $literasi->reporter->nama : 'Admin2' : 'Admin'}} - {{hari_tanggal_waktu($literasi->created_at)}}
                                             
                                         </div>
                                         </div>

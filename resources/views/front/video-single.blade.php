@@ -119,7 +119,7 @@
                                                 {{-- <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p> --}}
                                                 <!-- Post Meta -->
                                                 <div class="post-meta">
-                                                    <p style="color: #a29b9b">{{$video->reporter_id != 0 ?  ($video->reporter) ? $video->reporter->nama : 'NN' : 'Admin'}} - {{hari_tanggal_waktu($video->created_at)}}</p>
+                                                    <p style="color: #a29b9b">{{$video->reporter_id != 0 ?  ($video->reporter) ? $video->reporter->nama : 'Admin2' : 'Admin'}} - {{hari_tanggal_waktu($video->created_at)}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -144,7 +144,7 @@
                                                 <b class="mt-0">{{limit_word($videov->judul,30)}}</b>
                                                 <br>
                                                 {{-- {{$literasi->berita}} --}}
-                                                {{$videov->reporter_id != 0 ?  ($videov->reporter) ? $videov->reporter->nama : 'NN' : 'Admin'}} - {{hari_tanggal_waktu($videov->created_at)}}
+                                                {{$videov->reporter_id != 0 ?  ($videov->reporter) ? $videov->reporter->nama : 'Admin2' : 'Admin'}} - {{hari_tanggal_waktu($videov->created_at)}}
                                                 
                                             </div>
                                             </div>

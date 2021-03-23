@@ -85,7 +85,7 @@ Route::put('/foto/update', 'Admin\FotoController@update')->name('admin.foto.upda
 Route::delete('/foto/delete/{id}', 'Admin\FotoController@delete')->name('admin.foto.delete');
 
 Route::get('/iklan', 'Admin\IklanController@index')->name('admin.iklan');
-Route::get('/iklan/tambah/{album_id}', 'Admin\IklanController@create')->name('admin.iklan.create');
+Route::get('/iklan/tambah', 'Admin\IklanController@create')->name('admin.iklan.create');
 Route::post('/iklan/tambah', 'Admin\IklanController@store')->name('admin.iklan.store');
 Route::get('/iklan/edit/{id}', 'Admin\IklanController@edit')->name('admin.iklan.edit');
 Route::put('/iklan/update', 'Admin\IklanController@update')->name('admin.iklan.update');

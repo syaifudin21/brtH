@@ -22,7 +22,7 @@
                     <div class="single-blog-content mb-100">
                         <!-- Post Meta -->
                         <div class="post-meta">
-                            <p><a href="#" class="post-date">{{hari_tanggal_waktu($berita->created_at, true)}}</a> <a href="#" class="post-author">{{$berita->reporter_id != 0 ?  ($berita->reporter) ? $berita->reporter->nama: 'NN' : 'Admin'}}</a> - Papua 60 Detik</p>
+                            <p><a href="#" class="post-date">{{hari_tanggal_waktu($berita->created_at, true)}}</a> <a href="#" class="post-author">{{$berita->reporter_id != 0 ?  ($berita->reporter) ? $berita->reporter->nama: 'Admin2' : 'Admin'}}</a> - Papua 60 Detik</p>
                         </div>
 
                         <!-- Post Content -->
@@ -69,7 +69,7 @@
                                                 <b class="mt-0">{{limit_word($beritav->judul,30)}}</b>
                                                 <br>
                                                 {{-- {{$literasi->berita}} --}}
-                                                {{$beritav->reporter_id != 0 ?  ($beritav->reporter) ? $beritav->reporter->nama : 'NN' : 'Admin'}} - {{hari_tanggal_waktu($beritav->created_at)}}
+                                                {{$beritav->reporter_id != 0 ?  ($beritav->reporter) ? $beritav->reporter->nama : 'Admin2' : 'Admin'}} - {{hari_tanggal_waktu($beritav->created_at)}}
                                                 
                                             </div>
                                             </div>
@@ -107,7 +107,7 @@
                             {{-- <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p> --}}
                             <!-- Post Meta -->
                             <div class="post-meta">
-                                <p><a href="#" class="post-author">{{$video->reporter_id != 0 ?  ($video->reporter) ? $video->reporter->nama : 'NN' : 'Admin'}}</a> - <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
+                                <p><a href="#" class="post-author">{{$video->reporter_id != 0 ?  ($video->reporter) ? $video->reporter->nama : 'Admin2' : 'Admin'}}</a> - <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
                             </div>
                         </div>
                     </div>

@@ -159,7 +159,7 @@ class HomeController extends Controller
         ->where('end_date', '>=', $datenow)
         ->first();
         $video = Video::where(['slug'=>$slug,'publish'=>'Public'])->first();
-        $video['dilihat'] = $video->dilihat+1;
+        $video['dilihat'] = $video->dilihat+1 ?? 1;
         $video->save();
 
         SEOMeta::setTitle($video->judul);
@@ -269,4 +269,13 @@ class HomeController extends Controller
 
         return view('front.find', compact('videos', 'beritas', 'literasis'));
     }
+    public function tentangkami()
+    {
+        return view('front.tentangkami');
+    }
+    public function pedomansiber()
+    {
+        return view('front.pedomansiber');
+    }
+    
 }

@@ -39,7 +39,7 @@
                                         <img src="{{app('App\Models\Video')->gambarkecil($video->url)}}" class="leading mr-3" alt="..." style="width: 64px">
                                         <div class="media-body">
                                             <b>{{$video->judul}}</b><br>
-                                            <small>@if ($video->reporter_id != 0 ) Reporter : <a href="{{url('/admin/reporter/show/'.$video->reporter_id)}}">{{$video->reporter->nama}}</a> - @endif {{hari_tanggal_waktu($video->created_at, true)}}</small>
+                                            <small>@if ($video->reporter_id != 0 ) Reporter : <a href="{{url('/admin/reporter/show/'.$video->reporter_id)}}">{{$video->reporter->nama ?? 'Admin2'}}</a> - @endif {{hari_tanggal_waktu($video->created_at, true)}}</small>
                                         </div>
                                     </div>
                                 </td>

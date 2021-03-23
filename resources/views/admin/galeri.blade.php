@@ -38,7 +38,7 @@
                             <tr>
                                 <td>{{$album->album}}</td>
                                 <td class="text-center">{{$album->foto()->count()}}</td>
-                                <td>{{$album->reporter_id != 0 ? ($album->reporter) ? $album->reporter->nama: 'NN' : 'Admin'}}</td>
+                                <td>{{$album->reporter_id != 0 ? ($album->reporter) ? $album->reporter->nama: 'Admin2' : 'Admin'}}</td>
                                 <td class="text-center">
                                         <div class="toggle-flip">
                                             <label>

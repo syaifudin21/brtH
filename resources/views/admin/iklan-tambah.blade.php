@@ -15,8 +15,8 @@
         <div class="col-md-12">
 			<div class="tile">
 			  <div class="tile-body">
-				<form class="form-horizontal" id="submit-form" enctype="multipart/form-data" method="post" action="{{route('admin.iklan.update')}}">
-                {{ csrf_field() }} @method('PUT') <input type="hidden" name="id" value="{{$iklan->id}}">
+				<form class="form-horizontal" id="submit-form" enctype="multipart/form-data" method="post" action="{{route('admin.iklan.create')}}">
+                {{ csrf_field() }}
 
                     <div class="row">
 
@@ -24,7 +24,7 @@
                            <div class="form-group row">
                                 <label for="spase" class="col-sm-2 col-form-label">Spase</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="spase" id="spase" placeholder="ID SPASE" value="{{$iklan->spase}}">
+                                    <input type="text" class="form-control" name="spase" id="spase" placeholder="ID SPASE" value="{{old('spase')}}">
                                     @if ($errors->has('spase'))
                                         <small class="form-text text-muted">{{ $errors->first('spase') }}</small>
                                     @endif
@@ -33,7 +33,7 @@
                             <div class="form-group row">
                                 <label for="link" class="col-sm-2 col-form-label">Link Redirect</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="link" id="link" placeholder="Link Redirect" value="{{$iklan->link}}">
+                                    <input type="text" class="form-control" name="link" id="link" placeholder="Link Redirect" value="{{old('link')}}">
                                     @if ($errors->has('link'))
                                         <small class="form-text text-muted">{{ $errors->first('link') }}</small>
                                     @endif
@@ -42,7 +42,7 @@
                             <div class="form-group row">
                                 <label for="start_date" class="col-sm-2 col-form-label">Start Date</label>
                                 <div class="col-sm-10">
-                                    <input type="date" class="form-control" name="start_date" id="start_date" placeholder="Start Date" value="{{$iklan->start_date}}">
+                                    <input type="date" class="form-control" name="start_date" id="start_date" placeholder="Start Date" value="{{old('start_date')}}">
                                     @if ($errors->has('start_date'))
                                         <small class="form-text text-muted">{{ $errors->first('start_date') }}</small>
                                     @endif
@@ -51,7 +51,7 @@
                             <div class="form-group row">
                                 <label for="end_date" class="col-sm-2 col-form-label">End Date</label>
                                 <div class="col-sm-10">
-                                    <input type="date" class="form-control" name="end_date" id="end_date" placeholder="End Date" value="{{$iklan->end_date}}">
+                                    <input type="date" class="form-control" name="end_date" id="end_date" placeholder="End Date" value="{{old('end_date')}}">
                                     @if ($errors->has('end_date'))
                                         <small class="form-text text-muted">{{ $errors->first('end_date') }}</small>
                                     @endif
@@ -62,8 +62,8 @@
                                 <label for="end_date" class="col-sm-2 col-form-label">End Date</label>
                                 <div class="col-sm-10">
                                     <select name="publish" id="" class="form-control">
-                                        <option value="Public" {{$iklan->publish=='Public'? 'selected' : '' }} >Public</option>
-                                        <option value="Private" {{$iklan->publish=='Private'? 'selected' : '' }} >Private</option>
+                                        <option value="Public" {{old('publish')=='Public'? 'selected' : '' }} >Public</option>
+                                        <option value="Private" {{old('publish')=='Private'? 'selected' : '' }} >Private</option>
                                     </select>
                                     @if ($errors->has('publis'))
                                         <small class="form-text text-muted">{{ $errors->first('publis') }}</small>
@@ -84,11 +84,7 @@
                         </div>
 
                         <div class="col-sm-12 col-md-3">
-                            @if (!empty($iklan->foto))
-                                <img src="{{asset($iklan->foto)}}" style="max-height: 120px" class="rounded" alt="thumbnail" id="foto">
-                            @else
-                                <img src="{{asset('images/thumbnail.svg')}}" width="100%" class="rounded" alt="thumbnail" id="foto">
-                            @endif
+                            <img src="{{asset('images/thumbnail.svg')}}" width="100%" class="rounded" alt="thumbnail" id="foto">
                         </div>
                     </div>
                     <input type="hidden" name="redirect" value="{{url()->previous()}}">
@@ -98,7 +94,7 @@
 			  <div class="tile-footer">
 				<div class="row">
 				  <div class="col-md-8 col-md-offset-3">
-					<button class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('submit-form').submit();"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update</button>
+					<button class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('submit-form').submit();"><i class="fa fa-fw fa-lg fa-check-circle"></i>Tambah</button>
 					<a class="btn btn-default" href="{{route('admin.iklan')}}"><i class="fa fa-fw fa-lg fa-home"></i>Home Iklan</a>
 					{{-- <small class="form-text text-muted" id="jadwalhelp">Foto galeri diinputkan setelah nama gunung dan deskripsi gunung sudah ditambah</small> --}}
 				</div>

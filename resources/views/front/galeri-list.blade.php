@@ -20,7 +20,7 @@
                     {{-- <div class="row text-center ">
                         <div id="aniimated-thumbnials">
                             @forelse ($fotos as $foto)
-                            <a href="{{$foto->foto}}" class="mybox md-5" title="{{$foto->judul}}" data-lcl-txt="{{$foto->deskripsi}}" data-lcl-author="{{$foto->reporter_id != 0 ?  ($foto->reporter) ? $foto->reporter->nama : 'NN' : 'Admin'}}">
+                            <a href="{{$foto->foto}}" class="mybox md-5" title="{{$foto->judul}}" data-lcl-txt="{{$foto->deskripsi}}" data-lcl-author="{{$foto->reporter_id != 0 ?  ($foto->reporter) ? $foto->reporter->nama : 'Admin2' : 'Admin'}}">
                                     <img src="{{$foto->foto}}" style="padding: 0px; margin: 0px;object-fit: cover; width: 200px; height: 200px">
                                 </a>
                             @empty
@@ -47,7 +47,7 @@
                                             <h5 data-toggle="tooltip" data-placement="bottom" title="{{$album->album}}">{{limit_word($album->album, 35)}}</h5>
                                         </a>
                                         <div class="post-meta">
-                                            <p><a href="#" class="post-author">{{$album->reporter_id != 0 ?  ($album->reporter) ? $album->reporter->nama : 'NN' : 'Admin'}}</a> - <a href="#" class="post-date">{{hari_tanggal_waktu($album->created_at)}}</a></p>
+                                            <p><a href="#" class="post-author">{{$album->reporter_id != 0 ?  ($album->reporter) ? $album->reporter->nama : 'Admin2' : 'Admin'}}</a> - <a href="#" class="post-date">{{hari_tanggal_waktu($album->created_at)}}</a></p>
                                         </div>
                                     </div>
                                 </div>

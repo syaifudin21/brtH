@@ -42,12 +42,12 @@
                                     <img src="{{asset($berita->gambar)}}" class="leading mr-3" alt="..." style="width: 64px">
                                     <div class="media-body">
                                         <b>{{$berita->judul}}</b><br>
-                                        <small style="font-size: 80%"> @if ($berita->reporter_id != 0 ) Reporter : <a href="{{url('/admin/reporter/show/'.$berita->reporter_id)}}">{{$berita->reporter_id != 0 ?  ($berita->reporter) ? $berita->reporter->nama : 'NN' : 'Admin'}}</a> - @endif {{hari_tanggal_waktu($berita->created_at, true)}}</small> <br>
+                                        <small style="font-size: 80%"> @if ($berita->reporter_id != 0 ) Reporter : <a href="{{url('/admin/reporter/show/'.$berita->reporter_id)}}">{{$berita->reporter_id != 0 ?  ($berita->reporter) ? $berita->reporter->nama : 'Admin2' : 'Admin'}}</a> - @endif {{hari_tanggal_waktu($berita->created_at, true)}}</small> <br>
                                         Kategori : {{$berita->kategori}}
                                     </div>
                                     </div>
                                 </td>
-                                <td>{{$berita->reporter_id != 0 ?  ($berita->reporter) ?  $berita->reporter->nama : 'NN' : 'Admin'}}</td>
+                                <td>{{$berita->reporter_id != 0 ?  ($berita->reporter) ?  $berita->reporter->nama : 'Admin2' : 'Admin'}}</td>
                                 <td class="text-center">{{$berita->dilihat}}</td>
                                 <td class="text-center">{{$berita->publish}}</td>
                                 <td class="text-center">{{$berita->status}}</td>

@@ -23,7 +23,7 @@
                         <div class="media-body">
                             <h6 class="mt-0" style="font-weight: 600">{{$content->judul}}</h6>
                             {{-- {{$content->berita}} --}}
-                            {{$content->reporter_id != 0 ?  ($content->reporter) ? $content->reporter->nama : 'NN' : 'Admin'}} - {{hari_tanggal_waktu($content->created_at)}}
+                            {{$content->reporter_id != 0 ?  ($content->reporter) ? $content->reporter->nama : 'Admin2' : 'Admin'}} - {{hari_tanggal_waktu($content->created_at)}}
                             
                         </div>
                         </div>
@@ -51,7 +51,7 @@
                                         <div class="media-body">
                                             <h6 class="mt-0" style="font-weight: 600">{{$populer->judul}}</h6>
                                             {{-- {{$literasi->berita}} --}}
-                                            {{$populer->reporter_id != 0 ?  ($populer->reporter) ? $populer->reporter->nama : 'NN' : 'Admin'}} - {{hari_tanggal_waktu($populer->created_at)}}
+                                            {{$populer->reporter_id != 0 ?  ($populer->reporter) ? $populer->reporter->nama : 'Admin2' : 'Admin'}} - {{hari_tanggal_waktu($populer->created_at)}}
                                             
                                         </div>
                                         </div>

@@ -14,6 +14,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script data-ad-client="ca-pub-6778922688679043" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Main CSS-->
     <link rel="icon" href="{{asset(env('APP_ICON'))}}">
     <link rel="stylesheet" type="text/css" href="{{asset('back/css/main.css')}}">

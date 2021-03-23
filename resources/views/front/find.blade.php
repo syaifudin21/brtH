@@ -26,7 +26,7 @@
                                                 <b class="mt-0">{{limit_word($berita->judul,30)}}</b>
                                                 <br>
                                                 {{-- {{$literasi->berita}} --}}
-                                                {{$berita->reporter_id != 0 ?  ($berita->reporter) ? $berita->reporter->nama : 'NN' : 'Admin'}} - {{hari_tanggal_waktu($berita->created_at)}}
+                                                {{$berita->reporter_id != 0 ?  ($berita->reporter) ? $berita->reporter->nama : 'Admin2' : 'Admin'}} - {{hari_tanggal_waktu($berita->created_at)}}
                                                 
                                             </div>
                                             </div>
@@ -58,7 +58,7 @@
                                                 <b class="mt-0">{{limit_word($literasi->judul,30)}}</b>
                                                 <br>
                                                 {{-- {{$literasi->berita}} --}}
-                                                {{$literasi->reporter_id != 0 ?  ($literasi->reporter) ? $literasi->reporter->nama : 'NN' : 'Admin'}} - {{hari_tanggal_waktu($literasi->created_at)}}
+                                                {{$literasi->reporter_id != 0 ?  ($literasi->reporter) ? $literasi->reporter->nama : 'Admin2' : 'Admin'}} - {{hari_tanggal_waktu($literasi->created_at)}}
                                                 
                                             </div>
                                             </div>
@@ -91,7 +91,7 @@
                                                 <b class="mt-0">{{limit_word($video->judul,50)}}</b>
                                                 <br>
                                                 {{-- {{$literasi->berita}} --}}
-                                                {{$video->reporter_id != 0 ?  ($video->reporter) ? $video->reporter->nama : 'NN' : 'Admin'}} - {{hari_tanggal_waktu($video->created_at)}}
+                                                {{$video->reporter_id != 0 ?  ($video->reporter) ? $video->reporter->nama : 'Admin2' : 'Admin'}} - {{hari_tanggal_waktu($video->created_at)}}
                                                 
                                             </div>
                                             </div>

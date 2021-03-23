@@ -177,7 +177,7 @@
             <div class="row">
                 <div class="col-12 col-md-4">
                     <div class="footer-single-widget">
-                        <img src="{{asset(env('APP_LOGO'))}}" class="mt-4" alt="..." style="max-width: 200px">
+                        <img src="{{asset(env('APP_LOGO'))}}" class="mt-4" alt="..." style="max-width: 200px"><br>
                         <p class="text-white">Copyright &copy 2020 - Papua60Detik.id</p>
 
                         <?php

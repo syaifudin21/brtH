@@ -47,7 +47,7 @@
                                     </div>
                                     </div>
                                 </td>
-                                <td>{{$literasi->reporter_id != 0 ?  ($literasi->reporter) ?  $literasi->reporter->nama : 'NN' : 'Admin'}}</td>
+                                <td>{{$literasi->reporter_id != 0 ?  ($literasi->reporter) ?  $literasi->reporter->nama : 'Admin2' : 'Admin'}}</td>
                                 <td class="text-center">{{$literasi->dilihat}}</td>
                                 <td class="text-center">{{$literasi->status}}</td>
                                 <td class="text-center">{{$literasi->publish}}</td>

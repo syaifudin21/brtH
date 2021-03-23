@@ -21,7 +21,7 @@
                     <div class="single-blog-content mb-100">
                         <!-- Post Meta -->
                         <div class="post-meta">
-                            <p><a href="#" class="post-date">{{hari_tanggal_waktu($album->created_at, true)}}</a> <a href="#" class="post-author">{{$album->reporter_id != 0 ?  ($album->reporter) ? $album->reporter->nama: 'NN' : 'Admin'}}</a> - Papua 60 Detik</p>
+                            <p><a href="#" class="post-date">{{hari_tanggal_waktu($album->created_at, true)}}</a> <a href="#" class="post-author">{{$album->reporter_id != 0 ?  ($album->reporter) ? $album->reporter->nama: 'Admin2' : 'Admin'}}</a> - Papua 60 Detik</p>
                         </div>
 
                         <!-- Post Content -->
@@ -39,10 +39,10 @@
 
                                 <div id="aniimated-thumbnials">
                                     @forelse ($album->foto()->get() as $foto)
-                                    <a href="{{asset($foto->foto)}}" class="mybox md-5" title="{{$foto->judul}}" data-lcl-txt="{{$foto->deskripsi}}" data-lcl-author="{{$foto->reporter_id != 0 ?  ($foto->reporter) ? $foto->reporter->nama : 'NN' : 'Admin'}}">
+                                    <a href="{{asset($foto->foto)}}" class="mybox md-5" title="{{$foto->judul}}" data-lcl-txt="{{$foto->deskripsi}}" data-lcl-author="{{$foto->reporter_id != 0 ?  ($foto->reporter) ? $foto->reporter->nama : 'Admin2' : 'Admin'}}">
                                             <img src="{{asset($foto->foto)}}" width="100%">
                                         </a>
-                                        <figcaption class="figure-caption text-left"><i class="fa fa-camera" aria-hidden="true" style="padding: 2px 12px"></i> {{$foto->reporter_id != 0 ? ($foto->reporter) ? $foto->reporter->nama: 'NN' : 'Admin'}}</figcaption>
+                                        <figcaption class="figure-caption text-left"><i class="fa fa-camera" aria-hidden="true" style="padding: 2px 12px"></i> {{$foto->reporter_id != 0 ? ($foto->reporter) ? $foto->reporter->nama: 'Admin2' : 'Admin'}}</figcaption>
 
                                         <p style="padding: 20px 0px">{{$foto->deskripsi}}</p>
                                     @empty
@@ -72,7 +72,7 @@
                                             <b class="mt-0">{{limit_word($video->judul,30)}}</b>
                                             <br>
                                             {{-- {{$literasi->berita}} --}}
-                                            {{$video->reporter_id != 0 ?  ($video->reporter) ? $video->reporter->nama : 'NN' : 'Admin'}} - {{hari_tanggal_waktu($video->created_at)}}
+                                            {{$video->reporter_id != 0 ?  ($video->reporter) ? $video->reporter->nama : 'Admin2' : 'Admin'}} - {{hari_tanggal_waktu($video->created_at)}}
                                             
                                         </div>
                                         </div>

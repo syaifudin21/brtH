@@ -25,22 +25,19 @@ class IklanController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'deskripsi' => 'required|string',
-            'iklan' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'foto' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
         $iklan = new Iklan();
         $iklan->fill($request->all());
-        $iklan['reporter_id'] = '0';
-        if($request->hasFile('iklan')){
-            $upload = app('App\Helper\Images')->upload($request->file('iklan'), 'literasi');
-            $iklan['iklan'] = $upload['url'];
-            $iklan['slug'] = str_slug($upload['name'], '-');
+        if($request->hasFile('foto')){
+            $upload = app('App\Helper\Images')->upload($request->file('foto'), 'iklan');
+            $iklan['foto'] = $upload['url'];
         }
         $iklan->save();
 
         if($iklan){
-            return redirect(route('admin.album.show', ['album_id'=>$iklan->album_id]))
+            return redirect(route('admin.iklan'))
             ->with(['alert'=> "'title':'Berhasil','text':'Data Berhasil Disimpan', 'icon':'success','buttons': false, 'timer': 1200"]);
         }else{
             return back()

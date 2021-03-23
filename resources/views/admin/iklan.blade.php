@@ -17,8 +17,8 @@
                 <h3 class="tile-title">Daftar Iklan
 
                     <div class="btn-group float-right" role="group" aria-label="Basic example">
-                        {{-- <a class="btn btn-primary mr-1 mb-1 btn-sm" href="{{route('reporter.berita.create')}}">
-                            <i class="fa fa-plus"></i>Tambah</a> --}}
+                        <a class="btn btn-primary mr-1 mb-1 btn-sm" href="{{route('admin.iklan.create')}}">
+                            <i class="fa fa-plus"></i>Tambah</a>
                     </div>
                 </h3>
                 <div class="bs-component">
@@ -27,6 +27,7 @@
                             <tr>
                                 <th style="width: 64px">Foto</th>
                                 <th class="text-center">Spase</th>
+                                <th class="text-center">Status</th>
                                 <th class="text-center">Link</th>
                                 <th class="text-center">Start Date</th>
                                 <th class="text-center">End Date</th>
@@ -43,9 +44,10 @@
                                     </a>
                                 </td>
                                 <td class="text-center">{{$iklan->spase}}</td>
+                                <td class="text-center">{{$iklan->publish}}</td>
                                 <td class="text-center">{{$iklan->link}}</td>
-                                <td class="text-center">{{$iklan->start_date}}</td>
-                                <td class="text-center">{{$iklan->end_date}}</td>
+                                <td class="text-center">{{hari_tanggal($iklan->start_date, true)}}</td>
+                                <td class="text-center">{{hari_tanggal($iklan->end_date,true)}}</td>
                                 <td class="text-center">
                                     <a class="btn btn-light btn-sm" href="{{route('admin.iklan.edit', ['id'=> $iklan->id])}}">
                                             <i class="fa fa-edit"></i>Edit</a>
