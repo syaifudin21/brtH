@@ -1,5 +1,6 @@
 @extends('front.front-template')
 @section('css')
+
 <link rel="stylesheet" href="{{asset('vendor/galeri/css/lc_lightbox.css')}}">
 <link rel="stylesheet" href="{{asset('vendor/galeri/css/lc_lightbox.min.css')}}">
 <link href='https://fonts.googleapis.com/css?family=Heebo' rel='stylesheet' type='text/css'>

@@ -5,30 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    {{-- SEO share --}}
     <meta charset="UTF-8">
-    <meta name="url" property="og:url" content="{{url()->current()}}" />
-    <meta property="og:type" content="website" />
-    <meta name="title" property="og:title" content="@yield('meta-judul')" />
-    <meta name="robots" content="index, follow">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="@yield('meta-judul')">
-    <link rel="alternate" hreflang="id" href="{{url()->current()}}" />
-    <meta name="description" property="og:description" content="@yield('meta-deskripsi')" />
-    <meta name="twitter:description" content="@yield('meta-deskripsi')">
-    <meta name="picture" property="og:image" content="@yield('meta-image')" />
-    <meta name="twitter:image" content="@yield('meta-image')">
-    <meta property="og:image:width" content="1024"/>
-    <meta property="og:image:height" content="622"/>
-    <meta property="fb:app_id" content="976637702517221" />
-    
-    <meta name="fbx-token" content="19e2bf014bcd84cd3a63bd2986222f632a19b8951897894e254a90b07c37fbb7">
-    <meta name="fbx-berita-id" content="6743">
-    <meta name="fbx-berita-token" content="7fe767b1b6f0322fb55ad6df1951ee7ba827a59e">
-
     <!-- Title  -->
     <title>{{env('APP_NAME')}}</title>
     <link rel="icon" href="{{asset(env('APP_ICON', 'images/icon.png'))}}">
+
+    {!! SEOMeta::generate() !!}
+    {!! OpenGraph::generate() !!}
+    {!! Twitter::generate() !!}
+    {!! JsonLd::generate() !!}
+    {!! JsonLdMulti::generate() !!}
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{asset('front/style.css')}}">

@@ -10,10 +10,28 @@ use App\Models\Atribut;
 use App\Models\Album;
 use App\Models\Iklan;
 
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+use Artesaos\SEOTools\Facades\JsonLd;
+// OR with multi
+use Artesaos\SEOTools\Facades\JsonLdMulti;
+
+// OR
+use Artesaos\SEOTools\Facades\SEOTools;
+
+
 class HomeController extends Controller
 {
     public function index()
     {
+        SEOTools::setTitle('Papua60detik');
+        SEOTools::setDescription('Berita Seputar Papua');
+        SEOTools::opengraph()->setUrl(url()->current());
+        SEOTools::setCanonical(url()->current());
+        SEOTools::opengraph()->addProperty('type', 'articles');
+        SEOTools::jsonLd()->addImage(asset(env('APP_ICON', 'images/icon.png')));
+
         $datenow = date('Y-m-d');
 
         $iklan1 = Iklan::where('spase',1)
@@ -32,6 +50,13 @@ class HomeController extends Controller
 
     public function index2()
     {
+        SEOTools::setTitle('Papua60detik');
+        SEOTools::setDescription('Berita Seputar Papua');
+        SEOTools::opengraph()->setUrl(url()->current());
+        SEOTools::setCanonical(url()->current());
+        SEOTools::opengraph()->addProperty('type', 'articles');
+        SEOTools::jsonLd()->addImage(asset(env('APP_ICON', 'images/icon.png')));
+
         $datenow = date('Y-m-d');
         $iklan1 = Iklan::where('spase',1)
         ->where('start_date', '<=', $datenow)
@@ -59,6 +84,29 @@ class HomeController extends Controller
         $berita = Berita::where(['slug'=>$slug,'publish'=>'Public'])->first();
         $berita['dilihat'] = $berita->dilihat+1;
         $berita->save();
+
+        SEOMeta::setTitle($berita->judul);
+        SEOMeta::setDescription($berita->caption);
+        SEOMeta::addMeta('article:published_time', $berita->update_at, 'property');
+        SEOMeta::addMeta('article:section', $berita->kategori, 'property');
+
+        OpenGraph::setDescription($berita->caption);
+        OpenGraph::setTitle($berita->judul);
+        OpenGraph::setUrl(url()->current());
+        OpenGraph::addProperty('type', 'article');
+        OpenGraph::addProperty('locale', 'id-ID');
+        OpenGraph::addProperty('locale:alternate', ['pt-pt', 'en-us']);
+
+        OpenGraph::addImage(asset($berita->gambar));
+        OpenGraph::addImage(asset($berita->gambar));
+        OpenGraph::addImage(['url' => asset(env('APP_ICON', 'images/icon.png')), 'size' => 300]);
+        OpenGraph::addImage(asset($berita->gambar), ['height' => 300, 'width' => 300]);
+        
+        JsonLd::setTitle($berita->judul);
+        JsonLd::setDescription($berita->caption);
+        JsonLd::setType('Article');
+        JsonLd::addImage(asset($berita->gambar));
+
         $beritavs = Berita::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('dilihat', 'DESC')->limit(10)->get();
         $videos = Video::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('created_at', 'DESC')->limit(8)->get();
         return view('front.berita-single', compact('berita', 'beritavs', 'videos','iklan1'));
@@ -75,6 +123,29 @@ class HomeController extends Controller
         $literasi = Literasi::where(['slug'=>$slug,'publish'=>'Public'])->first();
         $literasi['dilihat'] = $literasi->dilihat+1;
         $literasi->save();
+        
+        SEOMeta::setTitle($literasi->judul);
+        SEOMeta::setDescription($literasi->caption);
+        SEOMeta::addMeta('article:published_time', $literasi->update_at, 'property');
+        SEOMeta::addMeta('article:section', $literasi->kategori, 'property');
+
+        OpenGraph::setDescription($literasi->caption);
+        OpenGraph::setTitle($literasi->judul);
+        OpenGraph::setUrl(url()->current());
+        OpenGraph::addProperty('type', 'article');
+        OpenGraph::addProperty('locale', 'id-ID');
+        OpenGraph::addProperty('locale:alternate', ['pt-pt', 'en-us']);
+
+        OpenGraph::addImage(asset($literasi->gambar));
+        OpenGraph::addImage(asset($literasi->gambar));
+        OpenGraph::addImage(['url' => asset(env('APP_ICON', 'images/icon.png')), 'size' => 300]);
+        OpenGraph::addImage(asset($literasi->gambar), ['height' => 300, 'width' => 300]);
+        
+        JsonLd::setTitle($literasi->judul);
+        JsonLd::setDescription($literasi->caption);
+        JsonLd::setType('Article');
+        JsonLd::addImage(asset($literasi->gambar));
+
         $literasivs = Literasi::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('dilihat', 'DESC')->limit(10)->get();
         $videos = Video::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('created_at', 'DESC')->limit(8)->get();
         return view('front.literasi-single', compact('literasi', 'literasivs', 'videos','iklan1'));
@@ -90,6 +161,29 @@ class HomeController extends Controller
         $video = Video::where(['slug'=>$slug,'publish'=>'Public'])->first();
         $video['dilihat'] = $video->dilihat+1;
         $video->save();
+
+        SEOMeta::setTitle($video->judul);
+        SEOMeta::setDescription($video->slug);
+        SEOMeta::addMeta('article:published_time', $video->update_at, 'property');
+        SEOMeta::addMeta('article:section', $video->kategori, 'property');
+
+        OpenGraph::setDescription($video->slug);
+        OpenGraph::setTitle($video->judul);
+        OpenGraph::setUrl(url()->current());
+        OpenGraph::addProperty('type', 'article');
+        OpenGraph::addProperty('locale', 'id-ID');
+        OpenGraph::addProperty('locale:alternate', ['pt-pt', 'en-us']);
+
+        OpenGraph::addImage(asset($video->thumbnail));
+        OpenGraph::addImage(asset($video->thumbnail));
+        OpenGraph::addImage(['url' => asset(env('APP_ICON', 'images/icon.png')), 'size' => 300]);
+        OpenGraph::addImage(asset($video->thumbnail), ['height' => 300, 'width' => 300]);
+        
+        JsonLd::setTitle($video->judul);
+        JsonLd::setDescription($video->slug);
+        JsonLd::setType('Article');
+        JsonLd::addImage(asset($video->thumbnail));
+
         $videovs = Video::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('dilihat', 'DESC')->limit(10)->get();
         $videos = Video::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('created_at', 'DESC')->paginate(12);
         return view('front.video-single', compact('video', 'videovs', 'videos','iklan1'));
